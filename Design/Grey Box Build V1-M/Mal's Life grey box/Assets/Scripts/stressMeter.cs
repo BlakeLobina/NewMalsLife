@@ -35,12 +35,15 @@ public class stressMeter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        gameEngine.GetComponent<gameEngine>().startStress = true;
+        //gameEngine.GetComponent<gameEngine>().startStress = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
         //eyes = GameObject.Find("Camera").transform;
 
         //RaycastHit detectHit;

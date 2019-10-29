@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(PlayerEngine))]
@@ -15,7 +16,7 @@ public class PlayerControl : MonoBehaviour
 {
     
     [SerializeField]
-    private float speed = 5f;
+    public float speed = 5f;
 
     [SerializeField]
     private float lookSensitivity = 5f;
@@ -31,6 +32,14 @@ public class PlayerControl : MonoBehaviour
     {
         //=================No Player Movement==============
         float xMov = Input.GetAxisRaw("Horizontal");
+        if (xMov == 0)
+        {
+            GameObject.Find("GameEngine").GetComponent<gameEngine>().startStress = false;
+        }
+        else
+        {
+            GameObject.Find("GameEngine").GetComponent<gameEngine>().startStress = true;
+        }
         //float zMov = Input.GetAxisRaw("Vertical");
         Vector3 movHorizontal = transform.right * xMov;
         Vector3 m_velocity = movHorizontal.normalized * speed;
